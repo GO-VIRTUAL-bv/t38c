@@ -8,7 +8,8 @@ import (
 	"testing"
 	"time"
 
-	geojson "github.com/paulmach/go.geojson"
+	"github.com/paulmach/orb"
+	"github.com/paulmach/orb/geojson"
 	"github.com/stretchr/testify/require"
 	"github.com/xjem/t38c"
 )
@@ -40,8 +41,8 @@ func testGeofence(t *testing.T, client *t38c.Client) {
 			require.Equal(t, event.ID, "1")
 			require.Equal(t, event.Object, &t38c.Object{
 				Geometry: &geojson.Geometry{
-					Type:  geojson.GeometryPoint,
-					Point: []float64{-112, 33},
+					Type:        geojson.TypePoint,
+					Coordinates: orb.Point{-112, 33},
 				},
 			})
 		case 1:
@@ -51,8 +52,8 @@ func testGeofence(t *testing.T, client *t38c.Client) {
 			require.Equal(t, event.ID, "1")
 			require.Equal(t, event.Object, &t38c.Object{
 				Geometry: &geojson.Geometry{
-					Type:  geojson.GeometryPoint,
-					Point: []float64{-150, 40},
+					Type:        geojson.TypePoint,
+					Coordinates: orb.Point{-150, 40},
 				},
 			})
 			return errOk

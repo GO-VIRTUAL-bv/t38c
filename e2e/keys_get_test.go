@@ -5,7 +5,8 @@ import (
 	"testing"
 	"time"
 
-	geojson "github.com/paulmach/go.geojson"
+	"github.com/paulmach/orb"
+	"github.com/paulmach/orb/geojson"
 	"github.com/stretchr/testify/require"
 	"github.com/xjem/t38c"
 )
@@ -20,7 +21,7 @@ func testKeys(t *testing.T, client *t38c.Client) {
 	resp, err := client.Keys.Get("foo", "baz").WithFields().Object(context.Background())
 	require.NoError(t, err)
 
-	require.Equal(t, geojson.NewPolygonGeometry([][][]float64{{
+	require.Equal(t, geojson.NewGeometry(orb.Polygon{{
 		{0, 0},
 		{20, 0},
 		{20, 20},
@@ -40,7 +41,7 @@ func testKeysGet(t *testing.T, client *t38c.Client) {
 	{
 		resp, err := client.Keys.Get("foo", "bar").Object(context.Background())
 		require.NoError(t, err)
-		require.Equal(t, geojson.NewPointGeometry([]float64{2, 1}), resp.Object.Geometry)
+		require.Equal(t, geojson.NewGeometry(orb.Point{2, 1}), resp.Object.Geometry)
 	}
 
 	// Check point.

@@ -4,7 +4,8 @@ import (
 	"context"
 	"testing"
 
-	geojson "github.com/paulmach/go.geojson"
+	"github.com/paulmach/orb"
+	"github.com/paulmach/orb/geojson"
 	"github.com/stretchr/testify/require"
 	"github.com/xjem/t38c"
 )
@@ -13,7 +14,7 @@ func testWithin(t *testing.T, client *t38c.Client) {
 	err := client.Keys.Set("points", "point-1").Point(1, 1).Do(context.Background())
 	require.NoError(t, err)
 
-	geom := geojson.NewPolygonGeometry([][][]float64{{
+	geom := geojson.NewGeometry(orb.Polygon{{
 		{0, 0},
 		{20, 0},
 		{20, 20},

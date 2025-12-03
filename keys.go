@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	geojson "github.com/paulmach/go.geojson"
+	"github.com/paulmach/orb/geojson"
 )
 
 // Keys struct
@@ -14,17 +14,17 @@ type Keys struct {
 }
 
 // Bounds returns the minimum bounding rectangle for all objects in a key.
-func (ks *Keys) Bounds(ctx context.Context, key string) ([][][]float64, error) {
+func (ks *Keys) Bounds(ctx context.Context, key string) (geojson.Geometry, error) {
 	var resp struct {
 		Bounds geojson.Geometry `json:"bounds"`
 	}
 
 	err := ks.client.jExecute(ctx, &resp, "BOUNDS", key)
 	if err != nil {
-		return nil, err
+		return geojson.Geometry{}, err
 	}
 
-	return resp.Bounds.Polygon, nil
+	return resp.Bounds, nil
 }
 
 // Del remove a specified object.
