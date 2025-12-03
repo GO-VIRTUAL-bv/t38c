@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/GO-VIRTUAL-bv/t38c"
 	"github.com/paulmach/orb"
 	"github.com/paulmach/orb/geojson"
 	"github.com/stretchr/testify/require"
-	"github.com/xjem/t38c"
 )
 
 func testKeys(t *testing.T, client *t38c.Client) {

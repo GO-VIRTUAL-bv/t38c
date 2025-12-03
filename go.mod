@@ -1,4 +1,4 @@
-module github.com/xjem/t38c
+module github.com/GO-VIRTUAL-bv/t38c
 
 go 1.14
 
