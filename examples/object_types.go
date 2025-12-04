@@ -7,7 +7,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/paulmach/orb/geojson"
+	"github.com/GO-VIRTUAL-bv/orb/geojson"
 	"github.com/xjem/t38c"
 )
 

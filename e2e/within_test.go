@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
+	"github.com/GO-VIRTUAL-bv/orb"
+	"github.com/GO-VIRTUAL-bv/orb/geojson"
 	"github.com/GO-VIRTUAL-bv/t38c"
-	"github.com/paulmach/orb"
-	"github.com/paulmach/orb/geojson"
 	"github.com/stretchr/testify/require"
 )
 

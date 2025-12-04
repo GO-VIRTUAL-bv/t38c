@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/paulmach/orb/geojson"
+	"github.com/GO-VIRTUAL-bv/orb/geojson"
 )
 
 // Keys struct
